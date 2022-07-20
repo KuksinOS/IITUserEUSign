@@ -1,0 +1,14 @@
+{
+  "name": "euscp",
+  "version": "1.3.4",
+  "description": "IIT User CA-1.3. CA user library 'Sign (JavaScript)'",
+  "browser": "euscp.js",
+  "types": "euscp.d.ts",
+  "author": "JSC IIT",
+  "license": "JSC IIT",
+  "homepage": "https://iit.com.ua",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

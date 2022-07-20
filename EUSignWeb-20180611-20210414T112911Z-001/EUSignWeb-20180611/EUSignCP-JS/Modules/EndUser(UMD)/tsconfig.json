@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "es2015.promise", "es5"],
+    "module": "es2015",
+    "target": "es5",
+    "rootDir": "src",
+    "sourceMap": false,
+    "strict": false,
+    "declaration": true
+  }
+}

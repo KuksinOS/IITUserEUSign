@@ -1,0 +1,36 @@
+div#title
+  <b>Бібліотека підпису (web)</b>
+div#description
+  label Підпис файлу (з використанням ос. ключа Тестового ЦСК АТ ІІТ)
+br
+label Оберіть носій з ос. ключем:
+br
+br
+div
+  label Тип носія: 
+select#kmTypes(disabled="disabled")
+div
+  label Носій: 
+select#kmDevices(disabled="disabled")
+div
+  label Пароль: 
+input#kmPassword(disabled="disabled", type="password")
+br
+br
+label Оберіть файл для підпису:
+br
+br
+input#useInternalSign(type="checkbox", disabled="disabled")
+Використовувати внутрішній підпис
+br
+div
+  label Файл для підпису: 
+input#fileToSign(type="text", disabled="disabled")
+button#selectFile(disabled="disabled") Оберіть файл
+div
+  label Підписаний файл: 
+input#fileSign(type="text", disabled="disabled")
+button#selectSignFile(disabled="disabled") Оберіть файл
+br
+br
+button#signFile(disabled="disabled") Підписати

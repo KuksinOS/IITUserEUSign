@@ -1,0 +1,29 @@
+<LibsConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LibrariesVersion>1.3.1.2</LibrariesVersion>
+  <FileNames>
+    <string>CAConnectors.dll</string>
+    <string>CAGUI.dll</string>
+    <string>CSPBase.dll</string>
+    <string>CSPExtension.dll</string>
+    <string>CSPIBase.dll</string>
+    <string>EPCP.dll</string>
+    <string>EUSignCP.dll</string>
+    <string>ISCP.dll</string>
+    <string>KM.dll</string>
+    <string>KM.EKeyAlmaz1C.dll</string>
+    <string>KM.EKeyCrystal1.dll</string>
+    <string>KM.FileSystem.dll</string>
+    <string>KM.IDCard.dll</string>
+    <string>KM.NCMGryada301.dll</string>
+    <string>KM.PKCS11.dll</string>
+    <string>KM.TCTEllipseSCard.dll</string>
+    <string>LDAPClient.dll</string>
+    <string>NCHostCP.dll</string>
+    <string>NCMGryada301.dll</string>
+    <string>PKCS11.EKeyAlmaz1C.dll</string>
+    <string>PKCS11.EKeyCrystal1.dll</string>
+    <string>PKCS11.NCMGryada301.dll</string>
+    <string>PKIFormats.dll</string>
+    <string>RF.dll</string>
+  </FileNames>
+</LibsConfig>

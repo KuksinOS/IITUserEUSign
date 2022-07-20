@@ -1,0 +1,10 @@
+To run example
+1) install node.js from https://nodejs.org/uk/
+2) Switch to folder with example and install dependencies
+ npm install
+3) Run application
+ - debug version:
+ npm run dev
+ 
+ - release version:
+ npm run production
