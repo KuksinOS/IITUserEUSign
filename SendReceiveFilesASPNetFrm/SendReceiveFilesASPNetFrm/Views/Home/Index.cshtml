@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SendReceiveFilesASPNetFrm.Models.FileModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>MVC Razor</h1>
+
+<div class="jumbotron">
+    <div>
+        @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <span>Select File:</span>
+            <input type="file" name="postedFile" />
+            <hr />
+            <input type="submit" value="Upload" />
+            <br />
+            <span style="color:green">@TempData["Message"]</span>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <h3>Все файлы</h3>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Path
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Path)
+    </td>
+    <td>
+        @Html.ActionLink("Перевірити підпис!", "CheckSignature", new { id = item.Id }) 
+    </td>
+</tr>
+    }
+
+</table>
+
+
+
+</div>
+

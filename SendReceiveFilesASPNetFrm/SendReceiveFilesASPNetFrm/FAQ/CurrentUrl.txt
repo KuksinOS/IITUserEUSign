@@ -1,0 +1,16 @@
+﻿https://stackoverflow.com/questions/14591021/getting-the-current-url-within-the-view-layer-in-asp-net-mvc
+
+10
+
+It probably isn't the best idea, in my opinion, to use the URL for this.
+
+Instead, a quick and easy way to achieve this is to use ViewContext.RouteData that will contain values for both the controller and action of the current request. It can be accessed from the view layer easily.
+
+ViewContext.RouteData.Values["Controller"].ToString()
+ViewContext.RouteData.Values["Action"].ToString()
+So in your view you could do something like
+
+<ul class="nav">
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "ControllerName" ? "active" : "")"><a href="#">Foo</a></li>
+</ul>
+

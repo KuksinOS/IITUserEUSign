@@ -1,0 +1,50 @@
+﻿Nu Get Add Package:
+Microsoft.AspNet.WebApi
+
+Nu Get -> Update All Packages  but not Bootstrap
+
+https://docs.microsoft.com/ru-ru/aspnet/web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
+Post File:
+https://www.c-sharpcorner.com/UploadFile/2b481f/uploading-a-file-in-Asp-Net-web-api/
+
+
+
+https://stackoverflow.com/questions/21934223/web-api-2-routing-the-resource-cannot-be-found
+WebApi routing started to work after I've changed the position of Register api method to be above of register routes:
+https://docs.microsoft.com/ru-ru/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
+https://docs.microsoft.com/ru-ru/aspnet/web-api/overview/advanced/configuring-aspnet-web-api
+https://docs.microsoft.com/ru-ru/aspnet/web-api/overview/advanced/configuring-aspnet-web-api
+https://docs.microsoft.com/ru-ru/aspnet/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
+    protected void Application_Start()
+    {
+        AreaRegistration.RegisterAllAreas();
+        FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        GlobalConfiguration.Configure(WebApiConfig.Register);
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+    }
+
+
+
+
+https://localhost:44318/api/FileTransfer/UploadFile
+
+javascript
+https://developer.mozilla.org/ru/docs/Web/API/FormData/Using_FormData_Objects
+https://www.javascripttutorial.net/javascript-fetch-api/
+https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
+https://ru.stackoverflow.com/questions/414516/%D0%9A%D0%B0%D0%BA-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B0%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3-document-ready-%D0%BD%D0%B0-%D1%87%D0%B8%D1%81%D1%82%D0%BE%D0%BC-js
+
+
+c#
+
+<div class="jumbotron">
+    <div>
+        @using (Html.BeginForm("UploadFile", "api/FileTransfer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <span>Select File:</span>
+            <input type="file" name="postedFile" />
+            <hr />
+            <input type="submit" value="Upload" />
+
+        }

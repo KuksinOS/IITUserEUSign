@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "WebApi";
+
+}
+
+
+<h1>Web API</h1>
+<div class="jumbotron">
+    <div>
+        <h3 id="demo">Статус:</h3>
+        <form enctype="multipart/form-data" method="post" name="fileinfo">
+            <label>File to stash:</label>
+            <input type="file" name="postedFile" required />
+            <input type="submit" value="Upload" />
+        </form>
+
+    </div>
+</div>
+<div class="row">
+    <h3>Все файлы</h3>
+
+    <table id="listFiles" class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Path
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+
+    </table>
+</div>
+
+<script>
+
+    
+    document.addEventListener('DOMContentLoaded', function () { // Аналог $(document).ready(function(){
+        loadFiles();
+        });
+
+
+    var form = document.forms.namedItem("fileinfo");
+    form.addEventListener('submit', function (ev) {
+
+        var oOutput = document.querySelector("div"),
+            oData = new FormData(form);
+
+        oData.append("CustomField", "This is some extra data");
+
+        var oReq = new XMLHttpRequest();
+        oReq.open("POST", "/api/FileTransfer/UploadFile", true);
+        oReq.onload = function (oEvent) {
+            if (oReq.status == 201) {
+                document.getElementById('demo').innerHTML = "Uploaded!";
+                loadFiles();
+            } else {
+                document.getElementById('demo').innerHTML = "Error " + oReq.status + " occurred when trying to upload your file.<br \/>";
+            }
+        };
+
+        oReq.send(oData);
+        ev.preventDefault();
+    }, false);
+
+
+
+    function loadFiles() {
+        $("[id*=listFiles] tbody tr").remove();
+        const uri = '/api/FileTransfer/GetFiles';
+        fetch(uri)
+            .then(response => {
+                // let jsondata = response.blob();
+                response.json().then(result => {
+
+                    const listFiles = result.data;
+
+                    if (listFiles.length > 0) {
+                        listFiles.forEach(element => AppendRow(element));
+                    }
+
+
+                })
+
+
+
+
+            })
+            .catch(error => {
+                alert(error);
+            });
+    }
+
+    function AppendRow(element) {
+
+        $("[id*=listFiles] tbody")
+            .append($('<tr>')
+                .append($('<td>')
+                    .append(element.Id))
+                .append($('<td>')
+                    .append(element.Name))
+                .append($('<td>')
+                    .append(element.Path))
+                .append($('<td>')
+                    .append($('<button type="button" class="btn btn-primary" onclick="CheckSignature(this)">"Перевірити підпис!"</button>'))));
+    }
+
+</script>
